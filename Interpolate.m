@@ -1,40 +1,28 @@
-function interp  = MultiPoly(xi, yi, zi, X, Y)
-            m = length(xi)
-            Vand = createVandermonde(m, xi, yi)
+function interp  = Interpolate(xi, yi, zi, X, Y)
+            m = length(xi);
+            Vand = createVandermonde(m, xi, yi);
             coef = Vand\zi(:),
-%             %Plotting
-%             x = linspace(min(xi), max(xi));
-%             y = linspace(min(yi), max(yi));
-%             [X,Y] = meshgrid(x,y);
+            
             for i=1:100
                 for j=1:100
-                polyAtPoint = createCombination(m, X(i,j), Y(i,j));
-                interp(i,j) = polyAtPoint * coef;
+                polyAtPoint = createCombination(m, X(i, j), Y(i, j));
+                interp(i, j) = polyAtPoint * coef;
                 end
-            end
-           
-%             colormap hsv
-%             surf(X,Y,interp, 'EdgeColor', 'interp'); hold on
-          
+            end     
 end    
 
            
 function V = createVandermonde(m, xi, yi)
    V = zeros(m, m);
+   
    for row=1:m
-       %row,
-       %V(row,:) = createCombination(obj, m, obj.xi(row), obj.yi(row));
        sprintf('xi(row) = %20.16f', xi(row));
-       someVar = createCombination(m, xi(row), yi(row)); %Extra var for debugging TODO
-       V(row,:) = someVar;
+       V(row,:) = createCombination(m, xi(row), yi(row));
    end 
 end
         
 function c = createCombination(m, x, y)
-   %x,
-   %y,
-   maxDegree = floor(sqrt(m-1));
-   %maxDegree,
+   maxDegree = floor(sqrt(m - 1));
    tempIndex = 1;
 
    for i=maxDegree:-1:0
@@ -48,8 +36,7 @@ function c = createCombination(m, x, y)
           tempIndex = tempIndex + 1;
       end
    end
-   %temp1,
-   %temp2,
+   
    c = weaveFunctions(temp1, temp2, m);
 end
     
@@ -60,8 +47,8 @@ function w = weaveFunctions(vector1, vector2, size)
     p_switch = 1;
     w = [];
     i = size;
+    
     while(i > 0)
-        %i,
         if(p_switch == 1)
             if(isnan(vector1(p1)))
                i = i + 1;
