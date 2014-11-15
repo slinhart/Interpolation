@@ -6,7 +6,7 @@
 function interp  = Interpolate(xi, yi, zi, X, Y)
             linspaceSize = 100; % Length of linspace.
             
-            if(xi.length ~= yi.length || xi.length ~= zi.length) % Check for valid input
+            if(length(xi) ~= length(yi) || length(xi) ~= length(zi)) % Check for valid input
                 interp = NaN; disp('Sample Inputs are not the same size');
                 return;
             end
