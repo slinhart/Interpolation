@@ -12,8 +12,8 @@ interp = Interpolate(xi, yi, zi, X, Y);
 Plot3D(X, Y, xi, yi, zi, interp);
 %%%
 
-%%%%%% z = sin(1 + sqrt(x^2 + y^2))
-%%% Naively chosen points between (-4,4)
+%%%%%%z = sin(1 + sqrt(x^2 + y^2))
+%%% z = sin(1 + sqrt(x^2 + y^2))
 xi = [-3.8, -3.65, -2.7, -2.147, -0.5, 1.4, 2.1, 3.1, 3.95];
 yi = [1, -3.85, 2.47, 0.1, -1.5, 2.05, 1.337, 3.6, -2.3];
 x = linspace(min(xi), max(xi));
@@ -25,7 +25,7 @@ interp = Interpolate(xi, yi, zi, X, Y);
 Plot3D(X, Y, xi, yi, zi, interp);
 %%%
 
-%%% Points strategially chosen between (-4,4)
+%%% z = sin(1 + sqrt(x^2 + y^2))
 xi = [-3.8, -1.2, -1.9, -3.2, 0.1, 1.22, 1.25, 3.83, 3.6];
 yi = [-3.85, -1.95, 2.1, 3.91, 0.33, 1.77, -1.8, 3.7, -3.66];
 x = linspace(min(xi), max(xi));
