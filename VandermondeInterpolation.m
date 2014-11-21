@@ -9,7 +9,8 @@ x = linspace(min(xi), max(xi));
 y = linspace(min(yi), max(yi));
 [X, Y] = meshgrid(x, y);
 interp = Interpolate(xi, yi, zi, X, Y);
-Plot3D(X, Y, xi, yi, zi, interp,'x^2 + y^2');
+[realZ, err] = FindError(f, X, Y, interp);
+Plot3D(X, Y, xi, yi, zi, interp,'x^2 + y^2', realZ);
 %%%
 
 %%%%%% z = sin(1 + sqrt(x^2 + y^2))
@@ -20,9 +21,10 @@ x = linspace(min(xi), max(xi));
 y = linspace(min(yi), max(yi));
 f = @(x,y) sin(1 + sqrt(x.^2 + y.^2));
 zi = f(xi,yi); 
-[X, Y] = meshgrid(x, y);
+[X, Y] = meshgrid(x, y); 
 interp = Interpolate(xi, yi, zi, X, Y);
-Plot3D(X, Y, xi, yi, zi, interp, 'Naive: sin(1 + sqrt(x^2 + y^2))');
+[realZ, err] = FindError(f, X, Y, interp);
+Plot3D(X, Y, xi, yi, zi, interp, 'Naive: sin(1 + sqrt(x^2 + y^2))', realZ);
 %%%
 
 %%% Points strategially chosen between (-4,4)
@@ -34,10 +36,11 @@ f = @(x,y) sin(1 + sqrt(x.^2 + y.^2));
 zi = f(xi,yi); 
 [X, Y] = meshgrid(x, y);
 interp = Interpolate(xi, yi, zi, X, Y);
-Plot3D(X, Y, xi, yi, zi, interp,'Strategic: sin(1 + sqrt(x^2 + y^2))');
+[realZ, err] = FindError(f, X, Y, interp);
+Plot3D(X, Y, xi, yi, zi, interp,'Strategic: sin(1 + sqrt(x^2 + y^2))', realZ);
 %%%
 
-%%%%%% z = (x*y*(x^2 - y^2))/(x^2 + y^2)
+%%%%% z = (x*y*(x^2 - y^2))/(x^2 + y^2)
 %%% 9 strategically chosen points
 xi = [-3.99, -3.89, -3.911, -0.1, 0.13, 0.03, 2.22, 2.34, 3.90];
 yi = [3.93, 0.11, -3.87, 3.01, 0.12, -2.99, 2.05, -2.11, -0.13];
@@ -47,7 +50,8 @@ f = @(x,y) (x .* y .* (x.^2 - y.^2)) ./ (x.^2 + y.^2);
 zi = f(xi,yi); 
 [X, Y] = meshgrid(x, y);
 interp = Interpolate(xi, yi, zi, X, Y);
-Plot3D(X, Y, xi, yi, zi, interp, '9 points: (x*y*(x^2 - y^2))/(x^2 + y^2)');
+[realZ, err] = FindError(f, X, Y, interp);
+Plot3D(X, Y, xi, yi, zi, interp, '9 points: (x*y*(x^2 - y^2))/(x^2 + y^2)', realZ);
 %%%
 
 %%% 13 strategically chosen points
@@ -59,7 +63,8 @@ f = @(x,y) (x .* y .* (x.^2 - y.^2)) ./ (x.^2 + y.^2);
 zi = f(xi,yi); 
 [X, Y] = meshgrid(x, y);
 interp = Interpolate(xi, yi, zi, X, Y);
-Plot3D(X, Y, xi, yi, zi, interp, '13 points: (x*y*(x^2 - y^2))/(x^2 + y^2)');
+[realZ, err] = FindError(f, X, Y, interp);
+Plot3D(X, Y, xi, yi, zi, interp, '13 points: (x*y*(x^2 - y^2))/(x^2 + y^2)', realZ);
 %%%
 
 
