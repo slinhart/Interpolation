@@ -27,46 +27,35 @@ clear all; close all;
 % %%%%%
 
 %%%%%% z = sin(1 + sqrt(x^2 + y^2))
-
-    %%% 9 Naively chosen points between (-4,4)
+    f = @(x,y) sin(1 + sqrt(x.^2 + y.^2));
+    
+    %%% 9 naively points chosen between (-4,4)
     xi = [-3.8, -3.65, -2.7, -2.147, -0.5, 1.4, 2.1, 3.1, 3.95];
     yi = [1, -3.85, 2.47, 0.1, -1.5, 2.05, 1.337, 3.6, -2.3];
-    f = @(x,y) sin(1 + sqrt(x.^2 + y.^2));
-    name = 'Naive: sin(1 + sqrt(x^2 + y^2))';
+    name = '9 naive points (-4,4): sin(1 + sqrt(x^2 + y^2))';
     ExecuteInterpolation(xi, yi, f, name);
     %%%
 
-    %%% 9 Points strategially chosen between (-4,4)
-    xi = [-3.8, -1.2, -1.9, -3.2, 0.1, 1.22, 1.25, 3.83, 3.6];
-    yi = [-3.85, -1.95, 2.1, 3.91, 0.33, 1.77, -1.8, 3.7, -3.66];
-    f = @(x,y) sin(1 + sqrt(x.^2 + y.^2));
-    name = 'Strategic: sin(1 + sqrt(x^2 + y^2))';
+    %%% 9 grid points chosen between (-4,4)
+    xi = [-4, -4, -4, 0, 0, 0, 4, 4, 4];
+    yi = [4, 0, -4, 4, 0, -4, 4, 0, -4];
+    name = '9 grid points (-4,4): sin(1 + sqrt(x^2 + y^2))';
     ExecuteInterpolation(xi, yi, f, name);
     %%%
     
-    %%% 9 grid points (-10,10)
+    %%% 9 grid points chosen between (-10,10)
     xi = [-10, -10, -10, 0, 0, 0, 10, 10, 10];
     yi = [-10, 0, 10, -10, 0, 10, -10, 0, 10];
-    f = @(x,y) sin(1 + sqrt(x.^2 + y.^2));
-    name = 'N: sin(1 + sqrt(x^2 + y^2))';
+    name = '9 grid points (-10,10): sin(1 + sqrt(x^2 + y^2))';
     ExecuteInterpolation(xi, yi, f, name);
     %%%
     
-%     %%% 10 strategic points (-10,10)
-%     xi = [];
-%     yi = [];
-%     f = @(x,y) sin(1 + sqrt(x.^2 + y.^2));
-%     name = 'N: sin(1 + sqrt(x^2 + y^2))';
-%     ExecuteInterpolation(xi, yi, f, name);
-%     %%%
-%     
-%     %%% 15 strategic points (-4,4)
-%     xi = [];
-%     yi = [];
-%     f = @(x,y) sin(1 + sqrt(x.^2 + y.^2));
-%     name = 'N: sin(1 + sqrt(x^2 + y^2))';
-%     ExecuteInterpolation(xi, yi, f, name);
-%     %%%
+    %%% 15 strategic points chosen between(-10,10)
+    xi = [-9, -9.88, -9.11, -7, -6, -4.33, -2.8, 0, 0, 2.7, 2.8, 3.59, 5.22, 6.5, 9.66];
+    yi = [9.55, 0.11, -4, 7, -7.8, -5, 2.22, 7, 0, 3, -6.41, -0.2, 4.68, 8, -9.33];
+    name = '15 strategic points: sin(1 + sqrt(x^2 + y^2))';
+    ExecuteInterpolation(xi, yi, f, name);
+    %%%
     
 %%%%%
 
