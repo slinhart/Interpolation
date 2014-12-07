@@ -1,30 +1,30 @@
 clear all; close all;
-% %%%%% z = x^2 + y^2
-%     %%% 9 Naively chosen points
-%     xi = [-7, 4, 8, 1.5, 3, -9, -6.5, 0.5, 0];
-%     yi = [2, -2, 5.5, -3, 10, 9, 7.7, -1, -9.9];
-%     f = @(x,y) (x.^2 + y.^2);
-%     name = 'Naive: x^2 + y^2';
-%     ExecuteInterpolation(xi, yi, f, name);
-%     %%%
-%         
-%     %%% 9 Grid pattern points between (-10,10)
-%     xi = [-10, -10, -10, 0, 0, 0, 10, 10, 10];
-%     yi = [-10, 0, 10, -10, 0, 10, -10, 0, 10];
-%     f = @(x,y) (x.^2 + y.^2);
-%     name = '9 grid points: x^2 + y^2';
-%     ExecuteInterpolation(xi, yi, f, name);
-%     %%%
-%     
-%     %%% 15 grid pattern points between (-10,10)
-%     xi = [-10, -10, -10, -5, -5, -5, 0, 0, 0, 5, 5, 5, 10, 10 ,10];
-%     yi = [10, 0, -10, 10, 0, -10, 10, 0, -10, 10, 0, -10, 10, 0, -10];
-%     f = @(x,y) (x.^2 + y.^2);
-%     name = '15 grid points: x^2 + y^2';
-%     ExecuteInterpolation(xi, yi, f, name);
-%     %%%
-% 
-% %%%%%
+%%%%% z = x^2 + y^2
+    %%% 9 Naively chosen points
+    xi = [-7, 4, 8, 1.5, 3, -9, -6.5, 0.5, 0];
+    yi = [2, -2, 5.5, -3, 10, 9, 7.7, -1, -9.9];
+    f = @(x,y) (x.^2 + y.^2);
+    name = 'Naive: x^2 + y^2';
+    ExecuteInterpolation(xi, yi, f, name);
+    %%%
+        
+    %%% 9 Grid pattern points between (-10,10)
+    xi = [-10, -10, -10, 0, 0, 0, 10, 10, 10];
+    yi = [-10, 0, 10, -10, 0, 10, -10, 0, 10];
+    f = @(x,y) (x.^2 + y.^2);
+    name = '9 grid points: x^2 + y^2';
+    ExecuteInterpolation(xi, yi, f, name);
+    %%%
+    
+    %%% 15 grid pattern points between (-10,10)
+    xi = [-10, -10, -10, -5, -5, -5, 0, 0, 0, 5, 5, 5, 10, 10 ,10];
+    yi = [10, 0, -10, 10, 0, -10, 10, 0, -10, 10, 0, -10, 10, 0, -10];
+    f = @(x,y) (x.^2 + y.^2);
+    name = '15 grid points: x^2 + y^2';
+    ExecuteInterpolation(xi, yi, f, name);
+    %%%
+
+%%%%%
 
 %%%%%% z = sin(1 + sqrt(x^2 + y^2))
     f = @(x,y) sin(1 + sqrt(x.^2 + y.^2));
