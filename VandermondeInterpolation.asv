@@ -44,62 +44,62 @@ clear all; close all;
     ExecuteInterpolation(xi, yi, f, name);
     %%%
     
-    %%% 9 grid points (-4,4)
-    xi = [];
-    yi = [];
+    %%% 9 grid points (-10,10)
+    xi = [-10, -10, -10, 0, 0, 0, 10, 10, 10];
+    yi = [-10, 0, 10, -10, 0, 10, -10, 0, 10];
     f = @(x,y) sin(1 + sqrt(x.^2 + y.^2));
     name = 'N: sin(1 + sqrt(x^2 + y^2))';
     ExecuteInterpolation(xi, yi, f, name);
     %%%
     
-    %%% 10 strategic points (-10,10)
-    xi = [];
-    yi = [];
-    f = @(x,y) sin(1 + sqrt(x.^2 + y.^2));
-    name = 'N: sin(1 + sqrt(x^2 + y^2))';
-    ExecuteInterpolation(xi, yi, f, name);
-    %%%
-    
-    %%% 15 strategic points (-4,4)
-    xi = [];
-    yi = [];
-    f = @(x,y) sin(1 + sqrt(x.^2 + y.^2));
-    name = 'N: sin(1 + sqrt(x^2 + y^2))';
-    ExecuteInterpolation(xi, yi, f, name);
-    %%%
+%     %%% 10 strategic points (-10,10)
+%     xi = [];
+%     yi = [];
+%     f = @(x,y) sin(1 + sqrt(x.^2 + y.^2));
+%     name = 'N: sin(1 + sqrt(x^2 + y^2))';
+%     ExecuteInterpolation(xi, yi, f, name);
+%     %%%
+%     
+%     %%% 15 strategic points (-4,4)
+%     xi = [];
+%     yi = [];
+%     f = @(x,y) sin(1 + sqrt(x.^2 + y.^2));
+%     name = 'N: sin(1 + sqrt(x^2 + y^2))';
+%     ExecuteInterpolation(xi, yi, f, name);
+%     %%%
     
 %%%%%
 
-% %%%%% z = (x*y*(x^2 - y^2))/(x^2 + y^2)
-% 
-%     %%% 9 strategically chosen points
-%     xi = [-3.99, -3.89, -3.911, -0.1, 0.13, 0.03, 2.22, 2.34, 3.90];
-%     yi = [3.93, 0.11, -3.87, 3.01, 0.12, -2.99, 2.05, -2.11, -0.13];
-%     x = linspace(min(xi), max(xi));
-%     y = linspace(min(yi), max(yi));
-%     f = @(x,y) (x .* y .* (x.^2 - y.^2)) ./ (x.^2 + y.^2);
-%     zi = f(xi,yi); 
-%     [X, Y] = meshgrid(x, y);
-%     interp = Interpolate(xi, yi, zi, X, Y);
-%     [realZ, maxError, avgError] = FindError(f, X, Y, interp);
-%     name = '9 points: (xy(x^2 - y^2))/(x^2 + y^2)';
-%     Plot3D(X, Y, xi, yi, zi, interp, name, realZ, maxError, avgError);
-%     %%%
-% 
-%     %%% 13 strategically chosen points
-%     xi = [-3.99, -3.89, -3.911, -2.1, -2.03, -0.1, 0.13, 0.03, 2.22, 2.34, 3.97, 3.90, 3.88];
-%     yi = [3.93, 0.11, -3.87, 1.99, -1.95, 3.01, 0.12, -2.99, 2.05, -2.11, 3.79, -0.13, -3.967];
-%     x = linspace(min(xi), max(xi));
-%     y = linspace(min(yi), max(yi));
-%     f = @(x,y) (x .* y .* (x.^2 - y.^2)) ./ (x.^2 + y.^2);
-%     zi = f(xi,yi); 
-%     [X, Y] = meshgrid(x, y);
-%     interp = Interpolate(xi, yi, zi, X, Y);
-%     [realZ, maxError, avgError] = FindError(f, X, Y, interp);
-%     name = '13 points: (xy(x^2 - y^2))/(x^2 + y^2)';
-%     Plot3D(X, Y, xi, yi, zi, interp, name, realZ, maxError, avgError);
-%     %%%
-% %%%%%
+%%%%% z = (x*y*(x^2 - y^2))/(x^2 + y^2)
+    f = @(x,y) (x .* y .* (x.^2 - y.^2)) ./ (x.^2 + y.^2);
+    
+    %%% 9 Naively chosen points between (-4, 4)
+    xi = [];
+    yi = [];
+    name = 'Naive 9: (xy(x^2 - y^2))/(x
+    %%%
+
+    %%% 9 strategically chosen points
+    xi = [-3.99, -3.89, -3.911, -0.1, 0.13, 0.03, 2.22, 2.34, 3.90];
+    yi = [3.93, 0.11, -3.87, 3.01, 0.12, -2.99, 2.05, -2.11, -0.13];
+    name = '9 points: (xy(x^2 - y^2))/(x^2 + y^2)';
+    ExecuteInterpolation(xi, yi, f, name);
+    %%%
+
+    %%% 13 strategically chosen points
+    xi = [-3.99, -3.89, -3.911, -2.1, -2.03, -0.1, 0.13, 0.03, 2.22, 2.34, 3.97, 3.90, 3.88];
+    yi = [3.93, 0.11, -3.87, 1.99, -1.95, 3.01, 0.12, -2.99, 2.05, -2.11, 3.79, -0.13, -3.967];
+    x = linspace(min(xi), max(xi));
+    y = linspace(min(yi), max(yi));
+    f = @(x,y) (x .* y .* (x.^2 - y.^2)) ./ (x.^2 + y.^2);
+    zi = f(xi,yi); 
+    [X, Y] = meshgrid(x, y);
+    interp = Interpolate(xi, yi, zi, X, Y);
+    [realZ, maxError, avgError] = FindError(f, X, Y, interp);
+    name = '13 points: (xy(x^2 - y^2))/(x^2 + y^2)';
+    Plot3D(X, Y, xi, yi, zi, interp, name, realZ, maxError, avgError);
+    %%%
+%%%%%
 % 
 % 
 % 

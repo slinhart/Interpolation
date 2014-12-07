@@ -21,7 +21,7 @@ for i=1:length(xi)
    if(~isnan(realZ))
        zpoint = linspace(min(min(interp(:), realZ(:))), max(max(interp(:), realZ(:))));
    else
-       zpoint = linspace(min(interp), max(interp));
+       zpoint = linspace(min(interp(:)), max(interp(:)));
    end
    plot3(xpoint, ypoint, zpoint);
 end
