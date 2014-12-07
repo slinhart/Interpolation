@@ -1,9 +1,9 @@
-function [z, err] = FindError(f, X, Y, interp)
+function [z, maxError, avgError] = FindError(f, X, Y, interp)
 
 z = f(X, Y);
 err = abs(z - interp);
-a = max(err(:)),
-b = mean(err(:)),
+maxError = max(err(:)),
+avgError = mean(err(:)),
 
 end
 

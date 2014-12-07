@@ -44,29 +44,29 @@ clear all; close all;
     ExecuteInterpolation(xi, yi, f, name);
     %%%
     
-    %%% 9 grid points (-10,10)
-    xi = [-10, -10, -10, 0, 0, 0, 10, 10, 10];
-    yi = [-10, 0, 10, -10, 0, 10, -10, 0, 10];
+    %%% 9 grid points (-4,4)
+    xi = [];
+    yi = [];
     f = @(x,y) sin(1 + sqrt(x.^2 + y.^2));
     name = 'N: sin(1 + sqrt(x^2 + y^2))';
     ExecuteInterpolation(xi, yi, f, name);
     %%%
     
-%     %%% 10 strategic points (-10,10)
-%     xi = [];
-%     yi = [];
-%     f = @(x,y) sin(1 + sqrt(x.^2 + y.^2));
-%     name = 'N: sin(1 + sqrt(x^2 + y^2))';
-%     ExecuteInterpolation(xi, yi, f, name);
-%     %%%
-%     
-%     %%% 15 strategic points (-4,4)
-%     xi = [];
-%     yi = [];
-%     f = @(x,y) sin(1 + sqrt(x.^2 + y.^2));
-%     name = 'N: sin(1 + sqrt(x^2 + y^2))';
-%     ExecuteInterpolation(xi, yi, f, name);
-%     %%%
+    %%% 10 strategic points (-10,10)
+    xi = [];
+    yi = [];
+    f = @(x,y) sin(1 + sqrt(x.^2 + y.^2));
+    name = 'N: sin(1 + sqrt(x^2 + y^2))';
+    ExecuteInterpolation(xi, yi, f, name);
+    %%%
+    
+    %%% 15 strategic points (-4,4)
+    xi = [];
+    yi = [];
+    f = @(x,y) sin(1 + sqrt(x.^2 + y.^2));
+    name = 'N: sin(1 + sqrt(x^2 + y^2))';
+    ExecuteInterpolation(xi, yi, f, name);
+    %%%
     
 %%%%%
 
