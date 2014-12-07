@@ -6,9 +6,10 @@ surf(xplane, yplane, interp, 'EdgeColor', 'interp'); hold on
 
 % Plot real function
 if (~isnan(realZ))
-   freezeColors
+   %freezeColors
+   %figure
    colormap winter
-   surf(xplane, yplane, realZ, 'EdgeColor', 'interp');
+   surf(xplane, yplane, realZ, 'EdgeColor', 'interp'); %hold on
 end
 z = linspace(min(zi), max(zi), length(xi));
 plot3(xi, yi, zi, 'o');
