@@ -97,14 +97,54 @@ clear all; close all;
     %%% 13 strategically chosen points
     xi = [-3.99, -3.89, -3.911, -2.1, -2.03, -0.1, 0.13, 0.03, 2.22, 2.34, 3.97, 3.90, 3.88];
     yi = [3.93, 0.11, -3.87, 1.99, -1.95, 3.01, 0.12, -2.99, 2.05, -2.11, 3.79, -0.13, -3.967];
-    x = linspace(min(xi), max(xi));
-    y = linspace(min(yi), max(yi));
-    f = @(x,y) (x .* y .* (x.^2 - y.^2)) ./ (x.^2 + y.^2);
-    zi = f(xi,yi); 
-    [X, Y] = meshgrid(x, y);
-    interp = Interpolate(xi, yi, zi, X, Y);
-    [realZ, maxError, avgError] = FindError(f, X, Y, interp);
     name = 'Strategic 13: (xy(x^2 - y^2))/(x^2 + y^2)';
-    Plot3D(X, Y, xi, yi, zi, interp, name, realZ, maxError, avgError);
+    ExecuteInterpolation(xi, yi, f, name);
     %%%
+%%%%%
+
+%%%%% z = y * e^(sqr(x))
+    f = @(x,y) (y .* exp(sqrt(x)));
+    
+    %%% 9 Naively chosen points (0, 10)
+    xi = [3, 7, 2, 1, 4.2, 4.8, 1.7, 6, 9.7];
+    yi = [3.1, 6, 1, 4.1, 9, 8.2, 1.1, 0.2, 7.2];
+    name = 'Naive 9: y(e\^(sqrt(x))';
+    ExecuteInterpolation(xi, yi, f, name);
+    %%%
+    
+    %%% 9 Grid points (0, 10)
+    xi = [0, 5, 10, 0, 5, 10, 0, 5, 10];
+    yi = [0, 0, 0, 5, 5, 5, 10, 10, 10];
+    name = 'Grid 9: y(e\^sqrt(x)';
+    ExecuteInterpolation(xi, yi, f, name);
+    %%%
+    
+    %%% 9 Strategically chosen points (0, 10)
+    xi = [10, 0, 0, 1, 4.2, 10, 1.7, 6, 9.7];
+    yi = [10, 0, 10, 4.1, 9, 0.01, 1.1, 4, 7.2];
+    name = 'Strategic 9: y(e\^sqrt(x))';
+    ExecuteInterpolation(xi, yi, f, name);
+    %%%
+    
+    %%% 10 Strategically chosen points (0, 10)
+    xi = [10, 0, 0, 1, 4.2, 10, 1.7, 6, 9.7, 7.8];
+    yi = [10, 0, 10, 4.1, 9, 0.01, 1.1, 4, 7.2, 7.8];
+    name = 'Strategic 10: y(e\^sqrt(x))';
+    ExecuteInterpolation(xi, yi, f, name);
+    %%%
+    
+    %%% 15 Strategically chosen points (0, 10)
+    xi = [10, 0, 0, 1, 4.2, 10, 1.7, 6, 9.7, 7.8, 4.2, 9, 2.3, 7.8, 3.1];
+    yi = [10, 0, 10, 4.1, 9, 0.01, 1.1, 4, 7.2, 7.8, 6, 4.5, 8, 1.5, 3.3];
+    name = 'Strategic 15: y(e\^sqrt(x))';
+    ExecuteInterpolation(xi, yi, f, name);
+    %%%
+    
+    %%% 17 Strategically chosen points (0, 10)
+    xi = [10, 0, 0, 1, 4.2, 10, 1.7, 6, 9.7, 7.8, 4.2, 9, 2.3, 7.8, 3.1, 5, 7.9];
+    yi = [10, 0, 10, 4.1, 9, 0.01, 1.1, 4, 7.2, 7.8, 6, 4.5, 8, 1.5, 3.3, 2, 7.1];
+    name = 'Strategic 17: y(e\^sqrt(x))';
+    ExecuteInterpolation(xi, yi, f, name);
+    %%%
+    
 %%%%%
